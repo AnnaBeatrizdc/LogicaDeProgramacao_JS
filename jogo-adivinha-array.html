@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Adivinha</title>
+</head>
+<body>
+    <input type="text" id="palpite" placeholder="Digite seu palpite">
+    <button id="enviar">Enviar palpite</button>
+</body>
+</html>
+<script>
+
+    function sorteiaNumero() {
+        return Math.round(Math.random() * 10); // Gera um número aleatório entre 0 e 10
+    }
+    function sorteia(tamanho) {
+        var num = [];
+        var numeros = 1;
+
+        while (numeros <= tamanho) { // Enquanto o array não tiver 5 números
+            var numaleatorio = sorteiaNumero(); // Gera um número aleatório
+            var existe = false; // Variável para verificar se o número já existe no array
+
+            for (var i = 0; i < num.length; i++) { // Verifica se o número já existe no array
+                if (num[i] == numaleatorio) {
+                    existe = true; // Se existir, muda a variável para true
+                    break; // Sai do loop se o número já existir
+                }
+            }
+            if (existe == false) { // Se o número não existir no array
+                num.push(numaleatorio); // Adiciona o número ao array
+                numeros++; // Incrementa o contador de números
+            }
+            //num.push(sorteiaNumero()); // Adiciona um número aleatório entre 0 e 10 ao array
+        }
+        return num;
+    }
+
+    var num = sorteia(5); // Array com números para adivinhar
+    //num.push(sorteiaNumero); // Adiciona um número aleatório entre 0 e 10 ao array
+
+    console.log(num); // Mostra os números no console
+
+    var palpite = document.querySelector("input#palpite"); // Seleciona o input que esta no HTML
+    var botao = document.querySelector("button#enviar");
+    palpite.focus(); // Coloca o foco no campo de entrada
+    function varificaPalpite() {
+        var acerto = false; // Variável para verificar se o palpite está correto
+        for(var p = 0; p < num.length; p++){
+            if (palpite.value == num[p]) {
+                alert("Você acertou!");
+                acerto = true; // Se acertar, muda a variável para true
+                break; // Sai do loop se acertar
+            }
+        }
+
+        if (acerto == false) 
+        {
+            alert("Você errou!"); // Se não acertar, mostra mensagem de erro
+        }// Se não acertar, mostra mensagem de erro
+
+        palpite.value = ""; // Limpa o campo de entrada
+        palpite.focus(); // Coloca o foco no campo de entrada
+    }
+
+    botao.addEventListener("click", varificaPalpite); // Adiciona o evento de clique ao botão
+    //botao.onclick = varificaPalpite; // Outra forma de adicionar o evento de clique
+
+</script>

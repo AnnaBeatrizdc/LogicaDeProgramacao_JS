@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Adivinha</title>
+</head>
+<body>
+    <input type="text" id="palpite" placeholder="Digite seu palpite">
+    <button id="enviar">Enviar palpite</button>
+</body>
+</html>
+<script>
+    var num = Math.round(Math.random() * 10); // Gera um número aleatório entre 0 e 10
+    var palpite = document.querySelector("input#palpite"); // Seleciona o input que esta no HTML
+    var botao = document.querySelector("button#enviar");
+    palpite.focus(); // Coloca o foco no campo de entrada
+    function varificaPalpite() {
+        if (palpite.value == num) {
+            alert("Você acertou!");
+        }
+        else {
+            alert("Você errou!");
+        }
+
+        palpite.value = ""; // Limpa o campo de entrada
+        palpite.focus(); // Coloca o foco no campo de entrada
+    }
+
+    botao.addEventListener("click", varificaPalpite); // Adiciona o evento de clique ao botão
+    //botao.onclick = varificaPalpite; // Outra forma de adicionar o evento de clique
+
+</script>

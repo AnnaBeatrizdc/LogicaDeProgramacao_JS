@@ -1,0 +1,25 @@
+<script>
+    function pularlinha(){
+        document.write("<br>");
+    }
+    function mostra(frase){
+        document.write(frase);
+        pularlinha();
+    }
+
+    var numeropensado = Math.round(Math.random() * 10);
+    var tentativas = 0;
+    while(tentativas <= 3){
+        var chute = parseInt(prompt("Digite um chute entre 1 e 10: "));
+        if(chute == numeropensado){
+            mostra("Parabéns, você acertou!");
+            //break;
+            tentativas = 4; // Para sair do loop
+        } 
+        else {
+            mostra("Você errou!");
+        }
+        tentativas++;
+    }
+    mostra("Fim do jogo");
+</script>

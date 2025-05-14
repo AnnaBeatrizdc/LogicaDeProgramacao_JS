@@ -1,0 +1,19 @@
+<script>
+    function pularlinha(){
+        document.write("<br>");
+    }
+    function mostra(frase){
+        document.write(frase);
+        pularlinha();
+    }
+
+    var anocopa = 1930;
+    var limite = parseInt(prompt("Digite o ano limite: "));
+
+    while(anocopa <= limite){
+        mostra("Teve copa no ano de " + anocopa);
+        anocopa = anocopa + 4;
+    }
+
+    mostra("Fim do loop");
+</script>

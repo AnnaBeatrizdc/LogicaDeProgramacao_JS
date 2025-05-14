@@ -1,0 +1,19 @@
+<script>
+    function pularlinha(){
+        document.write("<br>");
+    }
+    function mostra(frase){
+        document.write(frase);
+        pularlinha();
+    }
+
+    var quantidade = parseInt(prompt("Digite a quantidade da familia: "));
+    var totalidade = 0;
+    for(var i= 1; i <= quantidade; i++){
+        var idade = parseInt(prompt("Digite a idade: "));
+        totalidade = totalidade + idade;
+    }
+    var media = totalidade / quantidade;
+    mostra("A média de idade da família é: " + media);
+    mostra("FIM")
+</script>

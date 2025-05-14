@@ -1,0 +1,41 @@
+
+<script>
+
+    function pularlinha(){
+        document.write("<br>");
+    }
+    function mostra(frase){
+        document.write(frase);
+        pularlinha();
+    }
+
+    function calcularIMC(peso, altura){
+        //var imc = peso / (altura * altura);
+        //mostra("O IMC é: " + imc.toFixed(2));
+        //return imc; // Retorna o valor do IMC
+        //MESMO RESULTRO QUE O DE CIMA
+        return peso / (altura * altura); // Retorna o valor do IMC
+    }
+
+    var nome = prompt("Digite o nome: ");
+    var peso = prompt("Digite o peso: ");
+    var altura = prompt("Digite a altura: ");
+    var imc = peso / (altura * altura);
+    //calcularIMC(peso, altura);
+    //var imcbia = calcularIMC(78, 1.60);
+
+    mostra(nome + ", o seu IMC é: " + imc.toFixed(2));
+
+    if(imc < 18.5){
+        mostra("O seu peso está abaixo do normal.");
+    }
+    if(imc >= 18.5 && imc <= 35){
+        mostra("O seu peso está normal.");
+    }
+    if(imc > 35){
+        mostra("O seu peso está acima do normal.");
+    }
+
+
+
+</script>
